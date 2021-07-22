@@ -15,13 +15,7 @@ agent  any
                 sh "mvn --version" 
             }
         }
-        
-        stage('build') {
-            steps {
-                sh 'mvn clean package'
-            }
-            
-        }
+       
         
         stage('test 1') {
             steps {
