@@ -1,6 +1,10 @@
 pipeline {
 
-agent  any 
+agent  {
+    node {
+      label 'assessment'
+    }
+  }
   
       tools {
         jdk 'jdk-8.221'
@@ -15,7 +19,13 @@ agent  any
                 sh "mvn --version" 
             }
         }
-       
+        
+        stage('build') {
+            steps {
+                sh 'mvn clean package'
+            }
+            
+        }
         
         stage('test 1') {
             steps {
